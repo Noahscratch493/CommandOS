@@ -1,11 +1,12 @@
 @echo off
 color 0a
-title CommandOS ver= 1.0
+title CommandOS ver=1.0
 
 echo Finding Kernel.........
 echo Kernel Found! Booting CommandOS
 pause
 
+:main
 cls            
 echo What is your name?
 set /p name=
@@ -25,14 +26,18 @@ echo 3. Clock
 echo 4. Calendar 
 echo 5. Songs 
 echo 6. Antivirus
+echo 7. Exit
 
 set /p input=
-if %input% == 1 goto info
-if %input% == 2 goto calc 
-if %input% == 3 goto clock
-if %input% == 4 goto calendar
-if %input% == 5 goto songs
-if %input% == 6 goto antivirus
+if "%input%" == "1" goto info
+if "%input%" == "2" goto calc 
+if "%input%" == "3" goto clock
+if "%input%" == "4" goto calendar
+if "%input%" == "5" goto songs
+if "%input%" == "6" goto antivirus
+if "%input%" == "7" goto end
+
+goto menu
 
 :info
 cls
@@ -66,17 +71,16 @@ echo  2. Menu
 
 set /p check= 
 
-if %check% == 1 goto update
-if %check% == 2 goto menu
+if "%check%" == "1" goto update
+if "%check%" == "2" goto menu
+
+goto info
 
 :update 
 cls
-echo To Update, Go to:
-echo.
-pause
-cls
-echo.
-echo echo.
+echo In the Browser Window, Download a Release!
+start https://github.com/Noahscratch493/CommandOS/releases/
+
 pause
 goto menu
 
@@ -91,9 +95,7 @@ echo.
 echo Result: %result%
 echo.
 pause
-
-
-goto menu  ; Returns to the main menu
+goto menu
 
 :clock
 cls
@@ -134,3 +136,8 @@ echo No viruses found. System clean.
 echo.
 pause
 goto menu
+
+:end
+cls
+echo CommandOS is Shutting Down...
+pause
