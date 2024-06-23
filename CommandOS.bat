@@ -19,7 +19,7 @@ pause
 cls
 echo What Would You Like To Do? Type the number.
 echo.
-echo 1. Update CommandOS
+echo 1. System Info 
 echo 2. Calculator 
 echo 3. Clock 
 echo 4. Calendar 
@@ -27,7 +27,7 @@ echo 5. Songs
 echo 6. Antivirus
 
 set /p input=
-if %input% == 1 goto update
+if %input% == 1 goto info
 if %input% == 2 goto calc 
 if %input% == 3 goto clock
 if %input% == 4 goto calendar
@@ -66,32 +66,12 @@ echo  2. Menu
 
 set /p check= 
 
-if %check% == 1 goto update
-if %check% == 2 goto menu
-
-:update 
-cls
-echo Checking for new version/Update.............
-echo.
-
-REM Download the latest CommandOS.bat from GitHub
-curl -O https://raw.githubusercontent.com/Noahscratch493/CommandOS/main/CommandOS.bat
-
-echo.
-pause
-
-REM Inform the user
-echo Make sure you have Curl installed to update.
-echo.
-pause
-
-REM Inform about the update process
-echo Closing CommandOS. Open CommandOS again to use the latest version.
-echo.
-pause
-
-REM Close CommandOS
-exit
+if %check% == 1 (
+    start https://github.com/Noahscratch493/CommandOS/releases/
+    goto menu
+) else if %check% == 2 (
+    goto menu
+)
 
 :calc
 cls
@@ -104,6 +84,8 @@ echo.
 echo Result: %result%
 echo.
 pause
+
+start calc.exe  ; Opens Windows Calculator
 
 goto menu  ; Returns to the main menu
 
