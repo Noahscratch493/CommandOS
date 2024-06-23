@@ -66,12 +66,19 @@ echo  2. Menu
 
 set /p check= 
 
-if %check% == 1 (
-    start https://github.com/Noahscratch493/CommandOS/releases/
-    goto menu
-) else if %check% == 2 (
-    goto menu
-)
+if %check% == 1 goto update
+if %check% == 2 goto menu
+
+:update 
+cls
+echo To Update, Go to:
+echo.
+pause
+cls
+echo.
+echo echo.
+pause
+goto menu
 
 :calc
 cls
@@ -85,7 +92,6 @@ echo Result: %result%
 echo.
 pause
 
-start calc.exe  ; Opens Windows Calculator
 
 goto menu  ; Returns to the main menu
 
