@@ -6,4 +6,6 @@ CommandOS Is a Batch OS.
 ## Links:
 <a href="https://github.com/Noahscratch493/CommandOS/wiki/" target="_blank">CommandOS Wiki</a>
 
+<a href="https://github.com/Noahscratch493/CommandOSPro" target="_blank">Download Pro Editions</a>
+
 <a href="https://github.com/Noahscratch493/CommandOS/wiki/Getting-Started" target="_blank">Getting Started</a>
